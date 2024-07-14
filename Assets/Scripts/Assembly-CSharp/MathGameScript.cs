@@ -80,9 +80,10 @@ public class MathGameScript : MonoBehaviour
                     this.solution = this.num1 + this.num2;
                     this.questionText.text = string.Concat(new object[]
                     {
-                        "SOLVE MATH Q",
+                        "Conflicted Code: ",
                         this.problem,
-                        ": \n \n",
+                        this.unityConflict[1],
+                        "expected:",
                         this.num1,
                         "+",
                         this.num2,
@@ -497,6 +498,15 @@ public class MathGameScript : MonoBehaviour
         "That's more like it...",
         "Keep up the good work or see me after class..."
     };
+
+    public string[] unityConflict = new string[]
+     {
+        " Test"
+     };
+
+    public string[] UnityKeys = new string[5];
+
+
 
     // Token: 0x04000664 RID: 1636
     private bool questionInProgress;
