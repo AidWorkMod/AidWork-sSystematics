@@ -35,16 +35,6 @@ public class PickupScript : MonoBehaviour
             }
 
             gc.CollectItem(orgID);
-
-            if (raycastHit.transform.name == "Pickup_Quarter" & Vector3.Distance(this.player.position, base.transform.position) < 10f)
-
-            {
-
-                raycastHit.transform.gameObject.SetActive(false);
-
-                this.cs1.AddCurrency();
-
-            }
         }
     }
 

@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: bd9e36c878265204387472011ad3e62d, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b47c92c83786cbd4c820fe3d3793f108, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1029,6 +1029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &93122943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2252,6 +2254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!4 &275877600
 Transform:
   m_ObjectHideFlags: 0
@@ -2314,6 +2318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &279350834
@@ -2811,6 +2817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &346505087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3735,6 +3743,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &394903352
@@ -4207,6 +4217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &437663465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4219,6 +4231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &437663466
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4573,6 +4587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &483836695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4585,6 +4601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &483836696
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4681,6 +4699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &490946047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4693,6 +4713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &490946048
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5061,6 +5083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &521416925
@@ -5587,6 +5611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &557002619
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5829,6 +5855,7 @@ MonoBehaviour:
   audNoEscaping: {fileID: 8300000, guid: 766320dd6a6fc8b4ba099a4e35fc866f, type: 3}
   aud_Whistle: {fileID: 8300000, guid: e3cc2b2bad78af547ae9f2993c1f1115, type: 3}
   aud_Delay: {fileID: 8300000, guid: 6a96f86bffb774442970da33fd929c06, type: 3}
+  audioQueue: {fileID: 0}
   quietAudioDevice: {fileID: 30887386}
   cc: {fileID: 632317854}
 --- !u!195 &557800882
@@ -5993,6 +6020,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &559782065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6005,6 +6034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &559782066
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6317,8 +6348,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Nothing
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21749360ea10093439a1f9266c91c718, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ea8bb120e8a8ba4aa942913babb2161, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6844,8 +6875,8 @@ MonoBehaviour:
   height: 0
   blackSky: {fileID: 2100000, guid: 470fdf1b5a71cce4fae87fe1731bdab6, type: 2}
   hud: {fileID: 651945851}
-  mobile1: {fileID: 651945851}
-  mobile2: {fileID: 651945851}
+  jumpRopeSpeedMultiplier: 0
+  camera3dIsActive: 0
 --- !u!143 &632317854
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7838,6 +7869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &705435082
@@ -8226,7 +8259,7 @@ MonoBehaviour:
   player: {fileID: 632317853}
   playerTransform: {fileID: 632317855}
   cameraTransform: {fileID: 2000711426}
-  camera: {fileID: 2000711422}
+  PlayerCamera: {fileID: 0}
   entrance_0: {fileID: 0}
   entrance_1: {fileID: 0}
   entrance_2: {fileID: 0}
@@ -8235,7 +8268,6 @@ MonoBehaviour:
   baldi: {fileID: 1665085838}
   baldiScrpt: {fileID: 1665085839}
   aud_Prize: {fileID: 8300000, guid: 96a81e273fc7ad348a3566872a52d19e, type: 3}
-  aud_PrizeMobile: {fileID: 8300000, guid: 99c3e7afa95ac534c9c236d6372aadfc, type: 3}
   aud_AllNotebooks: {fileID: 8300000, guid: 80ae7b39a843c2d4e9d94d392b9fddce, type: 3}
   principal: {fileID: 557800877}
   crafters: {fileID: 1006825873}
@@ -8251,6 +8283,8 @@ MonoBehaviour:
   boots: {fileID: 1658848370}
   mode: 
   notebooks: 0
+  maxNotebooks: 0
+  notebooksName: 
   notebookPickups: []
   failedNotebooks: 0
   spoopMode: 0
@@ -8264,6 +8298,18 @@ MonoBehaviour:
   - {fileID: 366697446}
   - {fileID: 1735145098}
   - {fileID: 753126392}
+  itemNames:
+  - Nothing
+  - Energy flavored Zesty Bar
+  - Swinging Door Lock
+  - Principal's Keys
+  - BSODA
+  - Quarter
+  - Baldi's Least Favorite Tape
+  - Alarm Clock
+  - WD-NoSquee
+  - Safety Scissors
+  - Big Ol' Boots
   itemText: {fileID: 593090299}
   items:
   - {fileID: 0}
@@ -8291,7 +8337,11 @@ MonoBehaviour:
   highScoreText: {fileID: 1613459008}
   warning: {fileID: 1967967742}
   reticle: {fileID: 354882057}
-  itemSelect: {fileID: 571013203}
+  itemSlotBgs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  learningActive: 0
   aud_Soda: {fileID: 8300000, guid: 976c5a7750c892346a6dcf0e36bce818, type: 3}
   aud_Spray: {fileID: 8300000, guid: f3cc7d07867fb7043a9baa417671b876, type: 3}
   aud_buzz: {fileID: 8300000, guid: 136776f62eb733a46b4ad3d162612aac, type: 3}
@@ -8302,12 +8352,34 @@ MonoBehaviour:
   aud_MachineLoop: {fileID: 8300000, guid: 73b5e1a2c02427541a0c03391e30e477, type: 3}
   aud_Switch: {fileID: 8300000, guid: cf80a140457f5344abf8e1094218e414, type: 3}
   schoolMusic: {fileID: 179497759}
-  outsideMusic: {fileID: 1642259783}
   learnMusic: {fileID: 1020090318}
+  skyBoxRed: {fileID: 0}
+  AAC: {fileID: 0}
+  aud_Crunch: {fileID: 0}
+  aud_Snip: {fileID: 0}
+  aud_Drop: {fileID: 0}
+  BigItemTextures:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  OutOfBsoda: {fileID: 0}
+  OutOfZesty: {fileID: 0}
+  useEmptyMachine: 0
+  badEndingMusic: {fileID: 0}
   AidCator: {fileID: 0}
   pickup: {fileID: 1794597352}
   pickupParent: {fileID: 1908836834}
   aud_deposit: {fileID: 8300000, guid: a5323aebb2d0c4346a2db9c5452c8e73, type: 3}
+  hideWall: {fileID: 0}
+  Secret: {fileID: 0}
+  surpriseActive: 0
 --- !u!114 &736679076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9350,6 +9422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &800910893
@@ -9463,6 +9537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &806660012
@@ -9907,6 +9983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &868366782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9919,6 +9997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &868366783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10430,6 +10510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &908908794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10442,6 +10524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &908908795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10634,6 +10718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &927706527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10646,6 +10732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &927706528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10756,8 +10844,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Noteboos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21749360ea10093439a1f9266c91c718, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ea8bb120e8a8ba4aa942913babb2161, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11671,6 +11759,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &980303834
@@ -12198,6 +12288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &999490358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12210,6 +12302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &999490359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12309,6 +12403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1000387721
@@ -12518,6 +12614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1005588089
@@ -12744,7 +12842,10 @@ MonoBehaviour:
   angrySprite: {fileID: 21300000, guid: 8ee7ca03afe12214780359cd5c286b84, type: 3}
   aud_Intro: {fileID: 8300000, guid: 0bf3516759302d24e8fa04136989f6c6, type: 3}
   aud_Loop: {fileID: 8300000, guid: b1a50bf8e9569354d92af5646414b6ab, type: 3}
-  spriteP: {fileID: 1769438962}
+  attackingCrafters: {fileID: 0}
+  normalSprite: {fileID: 0}
+  angerCooldown: 0
+  endless: 0
 --- !u!195 &1006825877
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13645,6 +13746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1054599803
@@ -13900,8 +14003,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21749360ea10093439a1f9266c91c718, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ea8bb120e8a8ba4aa942913babb2161, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14714,6 +14817,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1106247121
@@ -14824,6 +14929,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1110945661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14836,6 +14943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1110945662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15801,6 +15910,7 @@ MonoBehaviour:
   audBang: {fileID: 8300000, guid: 3b610cea7c5a8344d8e68e697374f66b, type: 3}
   audioDevice: {fileID: 1215436556}
   motorAudio: {fileID: 1215436555}
+  baldiScript: {fileID: 0}
 --- !u!82 &1215436555
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17022,6 +17132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1300663067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17034,6 +17146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1300663068
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17454,6 +17568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1349794806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17466,6 +17582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1349794807
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17757,6 +17875,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1368747880
@@ -17867,6 +17987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1376475466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17879,6 +18001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1376475467
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18074,6 +18198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1386399557
@@ -18442,6 +18568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1407101874
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18744,6 +18872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1416720591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18756,6 +18886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1416720592
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19370,6 +19502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1435707267
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19880,6 +20014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1491632063
@@ -20569,6 +20705,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1570185110
@@ -21070,6 +21208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1576324942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21082,6 +21222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1576324943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21343,6 +21485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1608412215
@@ -21556,6 +21700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1613783761
@@ -22273,6 +22419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1635666292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22285,6 +22433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1635666293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24347,6 +24497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!4 &1769438965
 Transform:
   m_ObjectHideFlags: 0
@@ -24502,6 +24654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1778443479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24514,6 +24668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1778443480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24610,6 +24766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1782786713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24622,6 +24780,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1782786714
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25140,6 +25300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1825187715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25152,6 +25314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1825187716
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26102,6 +26266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1860779456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26676,6 +26842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1908836836
@@ -26789,6 +26957,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &1919876770
@@ -27124,6 +27294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &1934327834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27136,6 +27308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &1934327835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27955,6 +28129,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   jumpHeight: 0
   jumpHeightV3: {x: 0, y: 0, z: 0}
+  FreecamLookX: 0
 --- !u!81 &2000711424
 AudioListener:
   m_ObjectHideFlags: 0
@@ -28068,6 +28243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &2034590922
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28455,6 +28632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 736679075}
+  ID: 0
+  itemNames: []
   player: {fileID: 632317855}
   cs1: {fileID: 0}
 --- !u!23 &2061102326
@@ -28757,6 +28936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21b9e9ae19258145b184dbc70421758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amplitude: 0.5
+  centerY: 1
 --- !u!114 &2084980599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28769,6 +28950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dfcf1d5ad3fe647be6669a9ce07a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doNotOptimize: 0
+  billboardX: 0
 --- !u!212 &2084980600
 SpriteRenderer:
   m_ObjectHideFlags: 0

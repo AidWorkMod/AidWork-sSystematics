@@ -24,6 +24,7 @@ public class Script : MonoBehaviour
 		{
 			this.audioDevice.Play();
 			this.played = true;
+			this.door.LockDoor2();
 		}
 	}
 
@@ -32,4 +33,6 @@ public class Script : MonoBehaviour
 
 	// Token: 0x040005A8 RID: 1448
 	private bool played;
+
+	public DoorScript door;
 }

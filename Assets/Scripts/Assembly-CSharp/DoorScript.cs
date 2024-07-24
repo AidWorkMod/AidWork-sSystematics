@@ -17,31 +17,19 @@ public class DoorScript : MonoBehaviour
 		{
 			this.lockTime -= 1f * Time.deltaTime;
 		}
-		else if (this.bDoorLocked) //If the door is locked, unlock it
-		{
-			this.UnlockDoor();
-		}
 		if (this.openTime > 0f) // If the open time is greater then 0, decrease lockTime Decrease open time
 		{
 			this.openTime -= 1f * Time.deltaTime;
 		}
 		if (this.openTime <= 0f & this.bDoorOpen)
 		{
-			this.barrier.enabled = true; // Turn on collision
-			this.invisibleBarrier.enabled = true; //Enable the invisible barrier
-			this.bDoorOpen = false; //Set the door open status to false
-			this.inside.material = this.closed; // Change one side of the door to the closed material
-			this.outside.material = this.closed2; // Change the other side of the door to the closed material
-            if (this.silentOpens <= 0) //If the door isn't silent
-			{
-				this.myAudio.PlayOneShot(this.doorClose, 1f); //Play the door close sound
-			}
+			this.CloseDoor();
 		}
 		if ((Input.GetMouseButtonDown(0) || Singleton<InputManager>.Instance.GetActionKey(InputAction.Interact)) && Time.timeScale != 0f & Vector3.Distance(this.player.position, base.transform.position) < this.openingDistance) //If the door is left clicked and the game isn't paused
 		{
 			Ray ray = Camera.main.ScreenPointToRay(new Vector3((float)(Screen.width / 2), (float)(Screen.height / 2), 0f));
 			RaycastHit raycastHit;
-			if (Physics.Raycast(ray, out raycastHit) && (raycastHit.collider == this.trigger & !this.bDoorLocked))
+			if (Physics.Raycast(ray, out raycastHit) && (raycastHit.collider == this.trigger))
 			{
 				if (this.baldi.isActiveAndEnabled & this.silentOpens <= 0)
 				{
@@ -51,7 +39,14 @@ public class DoorScript : MonoBehaviour
 				{
 					this.silentOpens--; //Decrease the amount of opens the door will stay quite for.
 				}
-				this.OpenDoor();
+                if (this.bDoorLocked) //If the door is silent
+                {
+					this.RattleDoor();
+                }
+				else 
+				{
+                    this.OpenDoor();
+                } 
 			}
 		}
 	}
@@ -71,8 +66,29 @@ public class DoorScript : MonoBehaviour
         this.openTime = 3f; //Set the open time to 3 seconds
 	}
 
-	// Token: 0x0600093D RID: 2365 RVA: 0x000213E2 File Offset: 0x0001F7E2
-	private void OnTriggerStay(Collider other)
+    public void CloseDoor()
+    {
+        this.barrier.enabled = true; // Turn on collision
+        this.invisibleBarrier.enabled = true; //Enable the invisible barrier
+        this.bDoorOpen = false; //Set the door open status to false
+        this.inside.material = this.closed; // Change one side of the door to the closed material
+        this.outside.material = this.closed2; // Change the other side of the door to the closed material
+        if (this.silentOpens <= 0) //If the door isn't silent
+        {
+            this.myAudio.PlayOneShot(this.doorClose, 1f); //Play the door close sound
+        }
+    }
+
+    public void RattleDoor()
+    {
+        if (this.silentOpens <= 0 && !this.bDoorOpen) //Play the door sound if the door isn't silent
+        {
+            this.myAudio.PlayOneShot(this.doorRattle, 1f);
+        }
+    }
+
+    // Token: 0x0600093D RID: 2365 RVA: 0x000213E2 File Offset: 0x0001F7E2
+    private void OnTriggerStay(Collider other)
 	{
 		if (!this.bDoorLocked & other.CompareTag("NPC")) //Open the door if it isn't locked and it is an NPC
 		{
@@ -80,18 +96,27 @@ public class DoorScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600093E RID: 2366 RVA: 0x00021404 File Offset: 0x0001F804
-	public void LockDoor(float time) //Lock the door for a specified amount of time
-	{
-		this.bDoorLocked = true;
-		this.lockTime = time;
-	}
+    // Token: 0x0600093E RID: 2366 RVA: 0x00021404 File Offset: 0x0001F804
+    public void LockDoor(float time) //Lock the door for a specified amount of time
+    {
+        this.bDoorLocked = true;
+        this.lockTime = time;
+        this.myAudio.PlayOneShot(this.doorClick, 1f);
+        this.CloseDoor();
+    }
+    public void LockDoor2() //Same thing but in other sense
+    {
+        this.bDoorLocked = true;
+        this.myAudio.PlayOneShot(this.doorClick, 1f);
+		this.CloseDoor();
+    }
 
-	// Token: 0x0600093F RID: 2367 RVA: 0x00021414 File Offset: 0x0001F814
-	public void UnlockDoor() //Unlock the door
+    // Token: 0x0600093F RID: 2367 RVA: 0x00021414 File Offset: 0x0001F814
+    public void UnlockDoor() //Unlock the door
 	{
 		this.bDoorLocked = false;
-	}
+        this.myAudio.PlayOneShot(this.doorUnclick, 1f);
+    }
 
     // Token: 0x06000940 RID: 2368 RVA: 0x0002141D File Offset: 0x0001F81D
 	public bool DoorLocked
@@ -138,8 +163,17 @@ public class DoorScript : MonoBehaviour
 	// Token: 0x040005CC RID: 1484
 	public AudioClip doorClose;
 
-	// Token: 0x040005CD RID: 1485
-	public Material closed;
+    // Token: 0x040005CB RID: 1483
+    public AudioClip doorClick;
+
+    // Token: 0x040005CC RID: 1484
+    public AudioClip doorUnclick;
+
+    // Token: 0x040005CC RID: 1484
+    public AudioClip doorRattle;
+
+    // Token: 0x040005CD RID: 1485
+    public Material closed;
 
 	// Token: 0x040005CE RID: 1486
 	public Material open;
@@ -154,7 +188,7 @@ public class DoorScript : MonoBehaviour
 	private bool bDoorOpen;
 
 	// Token: 0x040005D0 RID: 1488
-	private bool bDoorLocked;
+	public bool bDoorLocked;
 
 	// Token: 0x040005D1 RID: 1489
 	public int silentOpens;

@@ -36,8 +36,9 @@ public class SwingingDoorScript : MonoBehaviour
 			this.heardDoor = false;
 			this.bDoorOpen = false;
 			this.inside.material = this.closed;
-			this.outside.material = this.closed;
-		}
+            this.outside.material = this.closed2;
+			this.myAudio.PlayOneShot(this.doorClose);
+        }
 	}
 
 	// Token: 0x06000947 RID: 2375 RVA: 0x0002158C File Offset: 0x0001F98C
@@ -50,8 +51,8 @@ public class SwingingDoorScript : MonoBehaviour
 				this.heardDoor = true;
 				this.bDoorOpen = true;
 				this.inside.material = this.open;
-				this.outside.material = this.open;
-				this.openTime = 2f;
+                this.outside.material = this.open2;
+                this.openTime = 2f;
 				return;
 			}
 			if (other.isTrigger)
@@ -59,8 +60,8 @@ public class SwingingDoorScript : MonoBehaviour
 				this.heardDoor = true;
 				this.bDoorOpen = true;
 				this.inside.material = this.open;
-				this.outside.material = this.open;
-				this.openTime = 2f;
+                this.outside.material = this.open2;
+                this.openTime = 2f;
 			}
 		}
 	}
@@ -89,8 +90,9 @@ public class SwingingDoorScript : MonoBehaviour
 		this.bDoorLocked = true;
 		this.lockTime = time;
 		this.inside.material = this.locked;
-		this.outside.material = this.locked;
-	}
+		this.outside.material = this.locked2;
+        this.myAudio.PlayOneShot(this.doorLock);
+    }
 
 	// Token: 0x0600094A RID: 2378 RVA: 0x000216C8 File Offset: 0x0001FAC8
 	private void UnlockDoor()
@@ -99,8 +101,9 @@ public class SwingingDoorScript : MonoBehaviour
 		this.obstacle.SetActive(false);
 		this.bDoorLocked = false;
 		this.inside.material = this.closed;
-		this.outside.material = this.closed;
-	}
+		this.outside.material = this.closed2;
+        this.myAudio.PlayOneShot(this.doorUnlock);
+    }
 
 	// Token: 0x040005D9 RID: 1497
 	public GameControllerScript gc;
@@ -129,14 +132,32 @@ public class SwingingDoorScript : MonoBehaviour
 	// Token: 0x040005E1 RID: 1505
 	public Material open;
 
-	// Token: 0x040005E2 RID: 1506
-	public Material locked;
+    // Token: 0x040005E2 RID: 1506
+    public Material locked;
+
+    // Token: 0x040005E0 RID: 1504
+    public Material closed2;
+
+    // Token: 0x040005E1 RID: 1505
+    public Material open2;
+
+    // Token: 0x040005E2 RID: 1506
+    public Material locked2;
 
 	// Token: 0x040005E3 RID: 1507
 	public AudioClip doorOpen;
 
-	// Token: 0x040005E5 RID: 1509
-	[SerializeField]
+    // Token: 0x040005E3 RID: 1507
+    public AudioClip doorClose;
+
+    // Token: 0x040005E3 RID: 1507
+    public AudioClip doorLock;
+
+    // Token: 0x040005E3 RID: 1507
+    public AudioClip doorUnlock;
+
+    // Token: 0x040005E5 RID: 1509
+    [SerializeField]
 	private float openTime;
 
 	// Token: 0x040005E6 RID: 1510

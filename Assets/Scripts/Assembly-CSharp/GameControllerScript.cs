@@ -402,12 +402,7 @@ public class GameControllerScript : MonoBehaviour
 			}
             else if (this.item[this.itemSelected] == 5)
             {
-                Ray ray3 = Camera.main.ScreenPointToRay(new Vector3((float)(Screen.width / 2), (float)(Screen.height / 2), 0f));
-                RaycastHit raycastHit3;
-                if (Physics.Raycast(ray3, out raycastHit3))
-                {
-                    ResetItem();
-                }
+                ResetItem();
             }
             else if (this.item[this.itemSelected] == 6)
 			{
@@ -621,6 +616,11 @@ public class GameControllerScript : MonoBehaviour
 			this.audioDevice.loop = false;
 			this.audioDevice.Play();
 		}
+		if (this.exitsReached == 4 & failedNotebooks == 7) 
+		{
+            this.surpriseActive = true; //Turns on surpriseActive
+            this.entrance_3.Lower();
+        }
 	}
 
 	// Token: 0x0600097C RID: 2428 RVA: 0x00022CC1 File Offset: 0x000210C1
@@ -834,7 +834,7 @@ public class GameControllerScript : MonoBehaviour
 	private bool gamePaused;
 
 	// Token: 0x0400062C RID: 1580
-	private bool learningActive;
+	public bool learningActive;
 
 	// Token: 0x0400062D RID: 1581
 	private float gameOverDelay;
