@@ -430,7 +430,14 @@ public class GameControllerScript : MonoBehaviour
 					this.ResetItem();
 					this.audioDevice.PlayOneShot(this.aud_Spray);
 				}
-			}
+                if (raycastHit5.collider.name == "BlueLocker" && Vector3.Distance(this.playerTransform.position, raycastHit5.transform.position) <= 10f)
+                {
+                    BlueLockerScript blueLocker = raycastHit5.collider.gameObject.GetComponent<BlueLockerScript>();
+                    blueLocker.silentUses = 4;
+                    this.ResetItem();
+                    this.audioDevice.PlayOneShot(this.aud_Spray);
+                }
+            }
 			else if (this.item[this.itemSelected] == 9)
 			{
 				Ray ray6 = Camera.main.ScreenPointToRay(new Vector3((float)(Screen.width / 2), (float)(Screen.height / 2), 0f));
