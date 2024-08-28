@@ -31,6 +31,10 @@ public class NotebookScript : MonoBehaviour
 				this.audioDevice.Play();
 			}
 		}
+		if (this.gc.mode == "freeplay")
+		{
+			this.noMath = true;
+		}
 		if ((Input.GetMouseButtonDown(0) || Singleton<InputManager>.Instance.GetActionKey(InputAction.Interact)) && Time.timeScale != 0f & Vector3.Distance(this.player.position, base.transform.position) < this.openingDistance)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(new Vector3((float)(Screen.width / 2), (float)(Screen.height / 2), 0f));
@@ -47,8 +51,11 @@ public class NotebookScript : MonoBehaviour
 
 					if (this.gc.notebooks == 1 & !this.gc.spoopMode)
 		            {
-			            this.gc.quarter.SetActive(true);
-			            this.gc.tutorBaldi.PlayOneShot(this.gc.aud_Prize);
+                        if (this.gc.mode == "story")
+                        {
+                            this.gc.quarter.SetActive(true);
+                            this.gc.tutorBaldi.PlayOneShot(this.gc.aud_Prize);
+                        }
 		            }
 
 				    if (this.gc.notebooks == 2)

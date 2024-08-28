@@ -23,7 +23,15 @@ public class GameControllerScript : MonoBehaviour
 			this.baldiScrpt.endless = true; //Set Baldi use his slightly changed endless anger system
 			this.AAC.endless = true; //Set Arts & Crafter anger to be infinite
 		}
-		this.LockMouse(); //Prevent the mouse from moving
+		if (this.mode == "freeplay")
+		{
+			this.ActivateSpoopMode();
+		}
+        if (this.mode == "speedy")
+        {
+			Time.timeScale = 3f;
+        }
+        this.LockMouse(); //Prevent the mouse from moving
 		this.UpdateNotebookCount(); //Update the notebook count
 		this.itemSelected = 0; //Set selection to item slot 0(the first item slot)
 		this.gameOverDelay = 0.5f;
@@ -129,9 +137,12 @@ public class GameControllerScript : MonoBehaviour
 		}
 		if (this.finaleMode && !this.audioDevice.isPlaying && this.exitsReached == 3)
 		{
-			this.audioDevice.clip = this.aud_MachineLoop;
-			this.audioDevice.loop = true;
-			this.audioDevice.Play();
+			if (this.mode == "story")
+			{
+                this.audioDevice.clip = this.aud_MachineLoop;
+                this.audioDevice.loop = true;
+                this.audioDevice.Play();
+            }
 		}
 	}
 
@@ -143,16 +154,25 @@ public class GameControllerScript : MonoBehaviour
 			this.notebookCount.text = this.notebooks.ToString() + "/" + this.maxNotebooks + this.notebooksName;
 			//this.notebookCount.text = "Notebooks Left: " + (this.maxNotebooks - this.notebooks).ToString();
 		}
-		else
+        else
 		{
 			this.notebookCount.text = this.notebooks.ToString() + this.notebooksName;
 			//this.notebookCount.text = "Notebooks Found: " + this.notebooks.ToString();
 		}
-		if (this.notebooks == this.maxNotebooks & this.mode == "story")
+        if (this.mode == "ogStyled")
+        {
+            this.notebookCount.text = this.notebooks.ToString() + "/" + this.maxNotebooks + this.notebooksName;
+            //this.notebookCount.text = "Notebooks Left: " + (this.maxNotebooks - this.notebooks).ToString();
+        }
+        if (this.notebooks == this.maxNotebooks & this.mode == "story")
 		{
 			this.ActivateFinaleMode();
 		}
-	}
+        if (this.notebooks == this.maxNotebooks & this.mode == "ogStyled")
+        {
+            this.ActivateFinaleMode();
+        }
+    }
 
 	// Token: 0x06000967 RID: 2407 RVA: 0x00022024 File Offset: 0x00020424
 	public void CollectNotebook()
@@ -200,6 +220,7 @@ public class GameControllerScript : MonoBehaviour
 	{
 		AudioListener.pause = false;
 		SceneManager.LoadScene("MainMenu");
+		Time.timeScale = 1f;
 	}
 
 	// Token: 0x0600096C RID: 2412 RVA: 0x000220D1 File Offset: 0x000204D1
@@ -215,25 +236,69 @@ public class GameControllerScript : MonoBehaviour
 	// Token: 0x0600096D RID: 2413 RVA: 0x000220F8 File Offset: 0x000204F8
 	public void ActivateSpoopMode()
 	{
-		this.spoopMode = true; //Tells the game its time for spooky
-		this.entrance_0.Lower(); //Lower all the exits
-		this.entrance_1.Lower();
-		this.entrance_2.Lower();
-		this.entrance_3.Lower();
-		this.baldiTutor.SetActive(false); //Turns off Baldi(The one that you see at the start of the game)
-		this.quarter.SetActive(false);
-		this.baldi.SetActive(true); //Turns on Baldi
-        this.principal.SetActive(true); //Turns on Principal
-        this.crafters.SetActive(true); //Turns on Crafters
-        this.playtime.SetActive(true); //Turns on Playtime
-        this.gottaSweep.SetActive(true); //Turns on Gotta Sweep
-        this.bully.SetActive(true); //Turns on Bully
-        this.firstPrize.SetActive(true); //Turns on First-Prize
-		//this.TestEnemy.SetActive(true); //Turns on Test-Enemy
-		this.audioDevice.PlayOneShot(this.aud_Hang); //Plays the hang sound
-		this.learnMusic.Stop(); //Stop all the music
-		this.schoolMusic.Stop();
-	}
+        this.spoopMode = true; //Tells the game its time for spooky
+        this.learnMusic.Stop(); //Stop all the music
+        this.schoolMusic.Stop();
+        if (this.mode == "story") //If it is endless mode
+        {
+            this.entrance_0.Lower(); //Lower all the exits
+            this.entrance_1.Lower();
+            this.entrance_2.Lower();
+            this.entrance_3.Lower();
+            this.baldiTutor.SetActive(false); //Turns off Baldi(The one that you see at the start of the game)
+            this.quarter.SetActive(false);
+            this.baldi.SetActive(true); //Turns on Baldi
+            this.principal.SetActive(true); //Turns on Principal
+            this.crafters.SetActive(true); //Turns on Crafters
+            this.playtime.SetActive(true); //Turns on Playtime
+            this.gottaSweep.SetActive(true); //Turns on Gotta Sweep
+            this.bully.SetActive(true); //Turns on Bully
+            this.firstPrize.SetActive(true); //Turns on First-Prize
+                                             //this.TestEnemy.SetActive(true); //Turns on Test-Enemy
+            this.audioDevice.PlayOneShot(this.aud_Hang); //Plays the hang sound
+        }
+        if (this.mode == "endless") //If it is endless mode
+        {
+            this.entrance_0.Lower(); //Lower all the exits
+            this.entrance_1.Lower();
+            this.entrance_2.Lower();
+            this.entrance_3.Lower();
+            this.baldiTutor.SetActive(false); //Turns off Baldi(The one that you see at the start of the game)
+            this.quarter.SetActive(false);
+            this.baldi.SetActive(true); //Turns on Baldi
+            this.principal.SetActive(true); //Turns on Principal
+            this.crafters.SetActive(true); //Turns on Crafters
+            this.playtime.SetActive(true); //Turns on Playtime
+            this.gottaSweep.SetActive(true); //Turns on Gotta Sweep
+            this.bully.SetActive(true); //Turns on Bully
+            this.firstPrize.SetActive(true); //Turns on First-Prize
+            this.audioDevice.PlayOneShot(this.aud_Hang); //Plays the hang sound
+
+        }
+        if (this.mode == "freeplay") //If it is endless mode
+        {
+            this.baldiTutor.SetActive(false); //Turns off Baldi(The one that you see at the start of the game)
+            this.quarter.SetActive(false);
+            this.principal.SetActive(true); //Turns on Principal
+            this.crafters.SetActive(true); //Turns on Crafters
+            this.playtime.SetActive(true); //Turns on Playtime
+            this.gottaSweep.SetActive(true); //Turns on Gotta Sweep
+            this.bully.SetActive(true); //Turns on Bully
+            this.firstPrize.SetActive(true); //Turns on First-Prize
+			this.sicksign.SetActive(true);
+
+        }
+        if (this.mode == "ogStyled") //If it is endless mode
+        {
+            this.entrance_0.Lower(); //Lower all the exits
+            this.entrance_1.Lower();
+            this.entrance_2.Lower();
+            this.entrance_3.Lower();
+            this.baldiTutor.SetActive(false); //Turns off Baldi(The one that you see at the start of the game)
+            this.quarter.SetActive(false);
+            this.baldi.SetActive(true); //Turns on Baldi
+        }
+    }
 
 	// Token: 0x0600096E RID: 2414 RVA: 0x000221BF File Offset: 0x000205BF
 	private void ActivateFinaleMode()
@@ -287,8 +352,11 @@ public class GameControllerScript : MonoBehaviour
 		}
 		if (this.notebooks == 1 & !this.spoopMode) // If this is the players first notebook and they didn't get any questions wrong, reward them with a quarter
 		{
-			this.quarter.SetActive(true);
-			this.tutorBaldi.PlayOneShot(this.aud_Prize);
+			if(this.mode == "story")
+			{
+                this.quarter.SetActive(true);
+                this.tutorBaldi.PlayOneShot(this.aud_Prize);
+            }
 		}
 		else if (this.notebooks == this.maxNotebooks & this.mode == "story") // Plays the all 7 notebook sound
 		{
@@ -402,7 +470,39 @@ public class GameControllerScript : MonoBehaviour
 			}
             else if (this.item[this.itemSelected] == 5)
             {
-                ResetItem();
+                Ray ray3 = Camera.main.ScreenPointToRay(new Vector3((float)(Screen.width / 2), (float)(Screen.height / 2), 0f));
+                RaycastHit raycastHit3;
+                if (Physics.Raycast(ray3, out raycastHit3))
+                {
+                    if (raycastHit3.collider.name == "BSODAMachine" & Vector3.Distance(playerTransform.position, raycastHit3.transform.position) <= 10f)
+                    {
+                        ResetItem();
+                        this.audioDevice.PlayOneShot(this.aud_Drop);
+                        CollectItem(4);
+                        if (this.useEmptyMachine)
+                        {
+                            raycastHit3.collider.gameObject.name = "EmptyMachine";
+                            raycastHit3.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = OutOfBsoda;
+                        }
+                    }
+                    else if (raycastHit3.collider.name == "ZestyMachine" & Vector3.Distance(playerTransform.position, raycastHit3.transform.position) <= 10f)
+                    {
+                        ResetItem();
+                        this.audioDevice.PlayOneShot(this.aud_Drop);
+                        CollectItem(1);
+                        if (this.useEmptyMachine)
+                        {
+                            raycastHit3.collider.gameObject.name = "EmptyMachine";
+                            raycastHit3.collider.gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = OutOfZesty;
+                        }
+                    }
+                    else if (raycastHit3.collider.name == "PayPhone" & Vector3.Distance(playerTransform.position, raycastHit3.transform.position) <= 10f)
+                    {
+                        raycastHit3.collider.gameObject.GetComponent<TapePlayerScript>().Play();
+                        this.audioDevice.PlayOneShot(this.aud_Drop);
+                        ResetItem();
+                    }
+                }
             }
             else if (this.item[this.itemSelected] == 6)
 			{
@@ -599,35 +699,41 @@ public class GameControllerScript : MonoBehaviour
 	{
 		this.exitsReached++;
 		if (this.exitsReached == 1)
-		{
-			RenderSettings.ambientLight = Color.red; //Make everything red and start player the weird sound
-			RenderSettings.skybox = skyBoxRed; //Make skybox red
-			//RenderSettings.fog = true;
-			this.audioDevice.PlayOneShot(this.aud_Switch, 0.8f);
-			this.audioDevice.clip = this.aud_MachineQuiet;
-			this.itemText.color = Color.white;
-			this.notebookCount.color = Color.white;
-			this.audioDevice.loop = true;
-			this.audioDevice.Play();
+        {
+            this.audioDevice.PlayOneShot(this.aud_Switch, 0.8f);
+            if (this.mode == "story")
+            {
+                RenderSettings.ambientLight = Color.red; //Make everything red and start player the weird sound
+                RenderSettings.skybox = skyBoxRed; //Make skybox red
+                                                   //RenderSettings.fog = true;
+                this.audioDevice.clip = this.aud_MachineQuiet;
+                this.itemText.color = Color.white;
+                this.notebookCount.color = Color.white;
+                this.audioDevice.loop = true;
+                this.audioDevice.Play();
+            }
 		}
 		if (this.exitsReached == 2) //Play a sound
-		{
-			this.audioDevice.volume = 0.8f;
-			this.audioDevice.clip = this.aud_MachineStart;
-			this.audioDevice.loop = true;
-			this.audioDevice.Play();
+        {
+            this.audioDevice.PlayOneShot(this.aud_Switch, 0.8f);
+            if (this.mode == "story")
+            {
+                this.audioDevice.volume = 0.8f;
+                this.audioDevice.clip = this.aud_MachineStart;
+                this.audioDevice.loop = true;
+                this.audioDevice.Play();
+            }
 		}
 		if (this.exitsReached == 3) //Play a even louder sound
-		{
-			this.audioDevice.clip = this.aud_MachineRev;
-			this.audioDevice.loop = false;
-			this.audioDevice.Play();
+        {
+            this.audioDevice.PlayOneShot(this.aud_Switch, 0.8f);
+            if (this.mode == "story")
+            {
+                this.audioDevice.clip = this.aud_MachineRev;
+                this.audioDevice.loop = false;
+                this.audioDevice.Play();
+            }
 		}
-		if (this.exitsReached == 4 & failedNotebooks == 7) 
-		{
-            this.surpriseActive = true; //Turns on surpriseActive
-            this.entrance_3.Lower();
-        }
 	}
 
 	// Token: 0x0600097C RID: 2428 RVA: 0x00022CC1 File Offset: 0x000210C1
@@ -664,6 +770,18 @@ public class GameControllerScript : MonoBehaviour
         //this.TestEnemy.SetActive(false); //Turns off Test-Enemy
         RenderSettings.ambientLight = Color.gray; //Make everything white
                                                   //RenderSettings.fog = false;
+    }
+
+	public void CorruptionActive() 
+	{
+		this.finaleMode = false;
+		this.corruptionStarted = true;
+        this.audioDevice.Stop(); //Stop the load noise
+        this.audioDevice.PlayOneShot(this.aud_Switch);
+        this.baldi.SetActive(false);
+        RenderSettings.ambientLight = Color.gray; //Make everything white
+		this.audioDevice.PlayOneShot(blow, 1f);
+		this.entrance_2.Lower();
     }
 
     // Token: 0x040005F7 RID: 1527
@@ -921,13 +1039,17 @@ public class GameControllerScript : MonoBehaviour
 
     public Transform pickupParent;
 
-    public AudioClip aud_deposit;
-
     public GameObject hideWall;
 
     public GameObject Secret;
 
 	public bool surpriseActive;
+
+	public GameObject sicksign;
+
+	public bool corruptionStarted;
+
+	public AudioClip blow;
 
     // Token: 0x0400063K RID: 1604
     //private Player playerInput;

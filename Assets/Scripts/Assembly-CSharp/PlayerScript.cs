@@ -15,10 +15,18 @@ public class PlayerScript : MonoBehaviour
 		{
 			this.sensitivityActive = true;
 		}
+		else
+		{
+			this.sensitivityActive = false;
+		}
         if (PlayerPrefs.GetInt("3dCameraActive") == 1)
         {
             this.camera3dIsActive = true;
         }
+		else
+		{
+			this.camera3dIsActive = false;
+		}
         this.height = base.transform.position.y;
 		this.stamina = this.maxStamina;
 		this.playerRotation = base.transform.rotation;

@@ -90,9 +90,10 @@ public class DoorScript : MonoBehaviour
     // Token: 0x0600093D RID: 2365 RVA: 0x000213E2 File Offset: 0x0001F7E2
     private void OnTriggerStay(Collider other)
 	{
-		if (!this.bDoorLocked & other.CompareTag("NPC")) //Open the door if it isn't locked and it is an NPC
+		if (other.CompareTag("NPC")) //Open the door if it isn't locked and it is an NPC
 		{
 			this.OpenDoor();
+			this.bDoorLocked = false;
 		}
 	}
 

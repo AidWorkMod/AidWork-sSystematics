@@ -12,13 +12,27 @@ public class ExitTriggerScript : MonoBehaviour
 		{
 			if (this.gc.failedNotebooks >= this.gc.maxNotebooks) //If the player got all the problems wrong on all the 7 notebooks
 			{
-				this.gc.Surprise(); //Go to the secret ending			
+				if (this.gc.mode == "ogStyled")
+				{
+                    this.gc.CorruptionActive();
+                }
+				else if (this.gc.mode == "story")
+				{
+					this.gc.Surprise();
+				}
 			}
 			else
-			{
-				SceneManager.LoadScene("Results"); //Go to the win screen
+            {
+                if (this.gc.mode == "ogStyled")
+                {
+					this.gc.CorruptionActive();	
+                }
+                else if (this.gc.mode == "story")
+                {
+                    SceneManager.LoadScene("Results"); //Go to the win screen
+                }
 			}
-		}
+        }
 	}
 
 	// Token: 0x040005F6 RID: 1526

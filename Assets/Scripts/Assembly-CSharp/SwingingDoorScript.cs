@@ -8,13 +8,16 @@ public class SwingingDoorScript : MonoBehaviour
 	private void Start()
 	{
 		this.myAudio = base.GetComponent<AudioSource>();
-		this.bDoorLocked = true;
+		if (this.gc.mode == "freeplay") 
+		{
+			maxNotebooks = 0;
+        }
 	}
 
 	// Token: 0x06000946 RID: 2374 RVA: 0x00021490 File Offset: 0x0001F890
 	private void Update()
 	{
-		if (!requirementMet && gc.notebooks >= 2)
+		if (!requirementMet && gc.notebooks >= maxNotebooks)
 		{
 			this.requirementMet = true;
 			this.UnlockDoor();
@@ -177,5 +180,7 @@ public class SwingingDoorScript : MonoBehaviour
 
 	// Token: 0x040005EB RID: 1515
 	public bool heardDoor;
+
+	public float maxNotebooks;
 
 }

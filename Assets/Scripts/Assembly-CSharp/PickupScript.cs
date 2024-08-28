@@ -53,6 +53,4 @@ public class PickupScript : MonoBehaviour
     // Token: 0x040006DC RID: 1756
     public Transform player;
 
-    public CurrencyScript cs1;
-
 }

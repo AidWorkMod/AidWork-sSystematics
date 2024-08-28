@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 
 // Token: 0x020000BA RID: 186
@@ -10,6 +11,10 @@ public class NeedMoreScript : MonoBehaviour
 		if (this.gc.notebooks < 2 & other.tag == "Player")
 		{
 			this.audioDevice.PlayOneShot(this.baldiDoor, 1f);
+		}
+		if(this.gc.mode == "freeplay")
+		{
+			this.audioDevice.mute = true;
 		}
 	}
 

@@ -11,12 +11,21 @@ public class StartButton : MonoBehaviour
 		if (this.currentMode == StartButton.Mode.Story)
 		{
 			PlayerPrefs.SetString("CurrentMode", "story");
-		}
-		else
-		{
-			PlayerPrefs.SetString("CurrentMode", "endless");
-		}
-		SceneManager.LoadScene("School");
+            if (PlayerPrefs.GetInt("endless") == 1)
+            {
+                PlayerPrefs.SetString("CurrentMode", "endless");
+            }
+            else if (PlayerPrefs.GetInt("freeplay") == 1)
+            {
+                PlayerPrefs.SetString("CurrentMode", "freeplay");
+            }
+        }
+
+        else if (this.currentMode == StartButton.Mode.OgStyled)
+        {
+            PlayerPrefs.SetString("CurrentMode", "ogStyled");
+        }
+        SceneManager.LoadScene(this.scene);
 	}
 
 	// Token: 0x04000715 RID: 1813
@@ -27,7 +36,9 @@ public class StartButton : MonoBehaviour
 	{
 		// Token: 0x04000717 RID: 1815
 		Story,
-		// Token: 0x04000718 RID: 1816
-		Endless
-	}
+        // Token: 0x04000718 RID: 1816
+        OgStyled
+    }
+
+    public string scene;
 }

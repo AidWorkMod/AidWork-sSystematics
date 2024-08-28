@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Scenes/TestRoom.unity
     guid: 1bfa5adc7f589b44e8be78189891a1dd
+  - enabled: 1
+    path: Assets/Scene/Scenes/SchoolOg.unity
+    guid: a8487ba90f6fc24449e9b3ac5b768fd0
+  - enabled: 1
+    path: Assets/Scene/Scenes/oddWin.unity
+    guid: def19ef0e7b66c049ac0322027dc9cfe
   m_configObjects: {}
